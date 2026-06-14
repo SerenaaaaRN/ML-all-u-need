@@ -44,6 +44,7 @@ from .visualization import (
 
 from .modeling import (
     compare_models,
+    save_competition_result,
 )
 
 __all__ = [
@@ -53,5 +54,5 @@ __all__ = [
     "one_hot_encode", "label_encode", "target_encode",
     "standardize", "robust_scale", "log_transform",
     "plot_distributions", "plot_boxplot", "plot_class_balance",
-    "compare_models",
+    "compare_models", "save_competition_result",
 ]
