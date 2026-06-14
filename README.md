@@ -12,6 +12,7 @@ Python • scikit-learn • pandas • numpy • matplotlib • seaborn • jobl
 |---|---|---|
 | [Ad Click Prediction](advertisement_click_prediction/) | Binary Classification | NaiveBayes (Acc 92%) |
 | [Diabetes Prediction](diabetes_prediction/) | Binary Classification | NaiveBayes (Acc 77%) |
+| [Impact of AI Student](impact%20of%20ai%20student/) | Multiclass Classification | HistGradientBoosting (Acc 53%) |
 | [Rain Prediction](rain_prediction/) | Binary Classification | RandomForest (Acc 85%) |
 | [Telco Customer Churn](telco%20customer%20churn/) | Binary Classification | LogisticReg (Acc 79%) |
 | [Titanic Survival Prediction](titanic%20survival%20prediction/) | Binary Classification | RandomForest (Acc 85%) |
