@@ -161,3 +161,14 @@ def test_wine_quality_prediction(client: TestClient):
     assert response.status_code == 200
     data = response.json()
     assert "value" in data
+
+def test_eda_report(client: TestClient):
+    response = client.get("/api/eda/titanic")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["title"] == "RMS Titanic Survival Demographics Study"
+    assert len(data["sections"]) > 0
+    assert "chart_data" in data
+
+    response = client.get("/api/eda/invalid-project")
+    assert response.status_code == 404

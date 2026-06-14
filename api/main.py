@@ -1,6 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from services.model_loader import load_all_models
+from schemas.predict import EdaResponse
+from services.eda_data import EDA_REPORTS
 
 MODELS: dict = {}
 
@@ -13,9 +15,19 @@ async def startup():
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
-    allow_methods=["POST", "OPTIONS"],
+    allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
+
+@app.get("/api/eda")
+def list_eda_projects():
+    return list(EDA_REPORTS.keys())
+
+@app.get("/api/eda/{project_id}", response_model=EdaResponse)
+def get_eda_report(project_id: str):
+    if project_id not in EDA_REPORTS:
+        raise HTTPException(status_code=404, detail="EDA report not found")
+    return EDA_REPORTS[project_id]
 
 from routers import (
     ad_click, diabetes, ai_student, rain, 

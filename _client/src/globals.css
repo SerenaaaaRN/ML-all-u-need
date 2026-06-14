@@ -1,1 +1,60 @@
 @import "tailwindcss";
+@import "./styles/fonts.css";
+
+@theme {
+  --color-surface-primary: #FAF7F2;
+  --color-surface-secondary: #F5F0E8;
+  --color-surface-tertiary: #EDE7DB;
+  --color-surface-input: #FAF7F2;
+
+  --color-text-primary: #2C2417;
+  --color-text-secondary: #6B5D4F;
+  --color-text-tertiary: #9B8E7E;
+  --color-text-inverse: #FAF7F2;
+
+  --color-border-default: #E5DFD5;
+  --color-border-strong: #C9BFB0;
+  --color-border-input: #D4CCC0;
+
+  --color-accent-burgundy: #8B3A3A;
+  --color-accent-forest: #4A6741;
+  --color-accent-navy: #3D5A80;
+  --color-accent-amber: #B8860B;
+  --color-accent-muted-red: #C75050;
+
+  --color-chart-1: #8B3A3A;
+  --color-chart-2: #4A6741;
+  --color-chart-3: #3D5A80;
+  --color-chart-4: #B8860B;
+  --color-chart-5: #6B5D4F;
+
+  --color-tag-classification: #8B3A3A;
+  --color-tag-multiclass: #3D5A80;
+  --color-tag-regression: #4A6741;
+
+  --font-serif: "Lora", "Georgia", serif;
+  --font-sans: "Inter", "system-ui", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  --width-sidebar: 17.5rem;
+  --width-sidebar-icon: 3rem;
+  --width-sidebar-mobile: 18rem;
+
+  /* Custom typography scaling */
+  --text-base: 0.9375rem; /* 15px (default is 16px) */
+  --text-base--line-height: 1.5rem;
+}
+
+@layer base {
+  html, body {
+    @apply bg-surface-primary text-text-primary font-sans;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  #root {
+    height: 100%;
+  }
+}
