@@ -1,4 +1,4 @@
-# ML project folders — not needed at runtime
+# Exclude ML project folders — not needed at runtime
 advertisement_click_prediction/
 diabetes_prediction/
 impact of ai student/
@@ -9,13 +9,10 @@ video games sales/
 wine_quality_classification/
 utils/
 
-# Large / irrelevant files
+# Exclude large / irrelevant files
 *.ipynb
 *.csv
 *.png
 *.jpg
 *.jpeg
 *.gif
-notebooks/
-__pycache__/
-*.pyc
