@@ -1,9 +1,8 @@
-import numpy as np
 import pandas as pd
 from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import make_pipeline, Pipeline
+from sklearn.pipeline import make_pipeline
 from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import OneHotEncoder, RobustScaler, FunctionTransformer
+from sklearn.preprocessing import OneHotEncoder, RobustScaler
 
 NUMERIC_COLS = ['Age', 'SibSp', 'Parch', 'Fare']
 CATEGORICAL_COLS = ['Sex', 'Embarked', 'Pclass', 'Title']
@@ -35,9 +34,7 @@ def feature_engineering(df: pd.DataFrame) -> pd.DataFrame:
 
 
 
-def build_preprocessor() -> Pipeline:
-
-    fe_step = FunctionTransformer(feature_engineering, validate=False)
+def build_preprocessor() -> ColumnTransformer:
 
     numeric_pipeline = RobustScaler()
     category_pipeline = make_pipeline(
@@ -45,15 +42,10 @@ def build_preprocessor() -> Pipeline:
         OneHotEncoder(drop='first', sparse_output=False, handle_unknown='ignore')
     )
 
-    column_transformer = ColumnTransformer(
+    return ColumnTransformer(
         transformers=[
             ('num', numeric_pipeline, NUMERIC_COLS),
             ('cat', category_pipeline, CATEGORICAL_COLS),
         ],
         remainder='drop'
     )
-
-    return Pipeline([
-        ('feature_engineering', fe_step),
-        ('column_transformer', column_transformer),
-    ])

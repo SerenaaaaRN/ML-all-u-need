@@ -8,11 +8,3 @@ titanic survival prediction/
 video games sales/
 wine_quality_classification/
 utils/
-
-# Exclude large / irrelevant files
-*.ipynb
-*.csv
-*.png
-*.jpg
-*.jpeg
-*.gif

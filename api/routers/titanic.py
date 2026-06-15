@@ -7,6 +7,24 @@ from main import MODELS
 router = APIRouter()
 LABEL_MAP = {0: "Did Not Survive", 1: "Survived"}
 
+RARE_TITLES = ['Lady', 'Countess','Capt', 'Col','Don', 'Dr', 'Major', 'Rev', 'Sir', 'Jonkheer', 'Dona']
+
+def _feature_engineering(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+    df['Title'] = df['Name'].str.extract(r' ([A-Za-z]+)\.', expand=False)
+    df['Title'] = df['Title'].replace(RARE_TITLES, 'Rare')
+    df['Title'] = df['Title'].replace(['Mlle', 'Ms'], 'Miss')
+    df['Title'] = df['Title'].replace('Mme', 'Mrs')
+    df.drop(columns=['Name'], inplace=True)
+    medians = df.groupby(['Title', 'Pclass'])['Age'].transform('median')
+    df['Age'] = df['Age'].fillna(medians)
+    if df['Age'].isnull().any():
+        df['Age'] = df['Age'].fillna(df['Age'].median())
+    df['Embarked'] = df['Embarked'].fillna(df['Embarked'].mode()[0] if not df['Embarked'].mode().empty else 'S')
+    df['Pclass'] = df['Pclass'].astype(str)
+    return df
+
+
 class TitanicRequest(BaseModel):
     Pclass: int
     Name: str
@@ -23,7 +41,7 @@ def predict_titanic(body: TitanicRequest):
     if model is None:
         raise HTTPException(status_code=503, detail="Model not loaded.")
 
-    X = pd.DataFrame([body.model_dump()])
+    X = _feature_engineering(pd.DataFrame([body.model_dump()]))
     prediction = int(model.predict(X)[0])
 
     confidence = None
@@ -42,9 +60,9 @@ def predict_titanic(body: TitanicRequest):
         importances = estimator.feature_importances_
         feature_names = X.columns
         try:
-            if hasattr(model, "named_steps") and hasattr(model.named_steps["column_transformer"], "get_feature_names_out"):
-                 feature_names = model.named_steps["column_transformer"].get_feature_names_out()
-                 
+            if hasattr(model, "named_steps") and hasattr(model.named_steps["preprocessor"], "get_feature_names_out"):
+                 feature_names = model.named_steps["preprocessor"].get_feature_names_out()
+
             feature_importance = [
                 {"feature": col.replace("cat__", "").replace("num__", ""), "importance": round(float(imp), 4)}
                 for col, imp in sorted(

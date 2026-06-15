@@ -21,4 +21,5 @@ def load_all_models() -> dict:
             print(f"Loaded: {pid}")
         except Exception as e:
             print(f"Error loading {pid}: {e}")
+
     return loaded

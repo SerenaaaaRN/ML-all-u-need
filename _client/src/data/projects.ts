@@ -157,7 +157,7 @@ export const projects: ProjectMeta[] = [
     metricValue: 0.53,
     datasetSource: 'Kaggle',
     datasetSize: 1000,
-    isAvailable: false,
+    isAvailable: true,
     notebookPath: '/impact of ai student/',
     features: [
       {

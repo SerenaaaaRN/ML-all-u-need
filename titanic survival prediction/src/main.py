@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 from sklearn.model_selection import train_test_split
 from utils.modeling import save_competition_result
-from preprocessing import build_preprocessor
+from preprocessing import feature_engineering, build_preprocessor
 from training import run_competition
 
 
@@ -16,6 +16,8 @@ MODEL_PATH = Path("titanic survival prediction/models")
 
 if __name__ == "__main__":
     df = pd.read_csv(DATA_PATH)
+
+    df = feature_engineering(df)
 
     X = df.drop(columns=[TARGET])
     y = df[TARGET]
@@ -37,4 +39,3 @@ if __name__ == "__main__":
         print(f"  #{i+1}: {name} (Accuracy: {row['Accuracy']:.4f})")
 
     print(f"\nFinal winner {winner_name}")
-

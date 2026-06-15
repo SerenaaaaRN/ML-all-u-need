@@ -166,7 +166,7 @@ def test_eda_report(client: TestClient):
     response = client.get("/api/eda/titanic")
     assert response.status_code == 200
     data = response.json()
-    assert data["title"] == "RMS Titanic Survival Demographics Study"
+    assert data["title"] == "Studi Demografis Keselamatan RMS Titanic"
     assert len(data["sections"]) > 0
     assert "chart_data" in data
 
