@@ -1,0 +1,63 @@
+{
+  "title": "Analisis Click-Through Rate Iklan",
+  "subtitle": "Studi eksplorasi tentang indikator demografis dan gaji yang menentukan konversi pengguna.",
+  "source": "Kaggle Marketing Datasets",
+  "size": 400,
+  "chart_title": "Click-Through Rate berdasarkan Rentang Usia (%)",
+  "chart_data": [
+    { "name": "18-29", "value": 12.0 },
+    { "name": "30-39", "value": 41.0 },
+    { "name": "40-49", "value": 78.0 },
+    { "name": "50+", "value": 91.0 }
+  ],
+  "x_axis_label": "Rentang Usia",
+  "y_axis_label": "Click Rate (%)",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "1. Ringkasan Dataset",
+      "paragraphs": [
+        "Dataset ini mencatat penanda demografis dari 400 pengguna online. Tujuan dari penelitian ini adalah untuk mengisolasi fitur demografis mana yang memiliki kekuatan prediktif terkuat terhadap click-through rate iklan. Atribut yang dievaluasi meliputi Jenis Kelamin, Usia, dan Perkiraan Gaji, yang dipetakan terhadap tindakan Klik biner."
+      ],
+      "metrics": [
+        { "label": "Total Kohort", "value": "400 pengguna", "description": "Populasi sampel" },
+        { "label": "Prediktor", "value": "3 fitur", "description": "Gender, Usia, Gaji" },
+        { "label": "Rata-rata Usia", "value": "37,6 tahun", "description": "Sedikit miring ke kanan" },
+        { "label": "Rata-rata Gaji", "value": "$69.742", "description": "Standar dev $34k" }
+      ],
+      "images": []
+    },
+    {
+      "id": "demographics",
+      "title": "2. Pergeseran Demografis",
+      "paragraphs": [
+        "Analisis Data Eksplorasi menunjukkan bahwa usia adalah faktor paling kritis dalam konversi. Pengguna di bawah 30 tahun menunjukkan minat minimal terhadap iklan yang ditampilkan, sementara pengguna di atas 45 tahun menunjukkan konversi yang hampir universal, menunjukkan bahwa materi iklan sangat cocok dengan kelompok usia yang lebih tua."
+      ]
+    },
+    {
+      "id": "correlation",
+      "title": "3. Matriks Korelasi",
+      "paragraphs": [
+        "Koefisien korelasi Pearson mengungkapkan bahwa meskipun Perkiraan Gaji memiliki hubungan positif yang signifikan dengan konversi, Jenis Kelamin tetap netral secara statistik."
+      ],
+      "table": {
+        "headers": ["Nama Fitur", "Koefisien Korelasi", "Signifikansi P-Value"],
+        "rows": [
+          ["Usia", "+0,781", "p < 0,001 (Sangat Signifikan)"],
+          ["Perkiraan Gaji", "+0,362", "p < 0,001 (Sangat Signifikan)"],
+          ["Jenis Kelamin (Pria)", "-0,042", "p = 0,421 (Tidak Signifikan)"]
+        ],
+        "caption": "1.2 — Korelasi Prediktor dengan Variabel Target"
+      }
+    },
+    {
+      "id": "conclusion",
+      "title": "4. Kesimpulan Pemasaran",
+      "paragraphs": [
+        "Berdasarkan temuan demografis, kami merekomendasikan untuk membatasi penempatan iklan pada platform yang sebagian besar dihuni oleh audiens muda (< 30 tahun), dan mengalihkan anggaran ke kelompok usia yang lebih tinggi dengan ambang gaji yang lebih tinggi."
+      ],
+      "blockquote": "Menargetkan kampanye secara ketat kepada pengguna berusia 40+ dengan perkiraan gaji di atas $80.000 USD diproyeksikan dapat mengoptimalkan efisiensi pemasaran dan meningkatkan konversi klik hingga 180%.",
+      "blockquote_citation": "ML Showcase Agent, Peneliti Utama"
+    }
+  ]
+}

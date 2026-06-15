@@ -1,0 +1,63 @@
+{
+  "title": "Studi Churn Pelanggan Telekomunikasi",
+  "subtitle": "Riset eksplorasi ke dalam parameter pelanggan yang memicu atrisi pelanggan.",
+  "source": "IBM Customer Analytics Catalog",
+  "size": 7043,
+  "chart_title": "Tingkat Churn berdasarkan Jenis Kontrak (%)",
+  "chart_data": [
+    { "name": "Bulanan", "value": 43.0 },
+    { "name": "Satu tahun", "value": 11.0 },
+    { "name": "Dua tahun", "value": 3.0 }
+  ],
+  "x_axis_label": "Jenis Kontrak",
+  "y_axis_label": "Tingkat Churn (%)",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "1. Ringkasan Eksekutif",
+      "paragraphs": [
+        "Dataset ini menangkap 7.043 pelanggan telekomunikasi, mencatat demografi, detail kontrak, layanan (DSL, fiber optik, dukungan teknis), dan total tagihan bulanan. Tujuan kami adalah mengidentifikasi penanda utama yang mewakili risiko atrisi pelanggan."
+      ],
+      "metrics": [
+        { "label": "Ukuran Dataset", "value": "7.443 profil", "description": "Data kuartal tunggal" },
+        { "label": "Churn Keseluruhan", "value": "26,5%", "description": "Rata-rata industri" },
+        { "label": "Rata-rata Tenure", "value": "32,4 bulan", "description": "Sangat bimodal" },
+        { "label": "Pangsa Fiber Optik", "value": "44,0%", "description": "Korelasi tertinggi" }
+      ]
+    },
+    {
+      "id": "contracts",
+      "title": "2. Dinamika Kontrak",
+      "paragraphs": [
+        "Panjang kontrak pelanggan adalah prediktor tunggal terkuat dari churn. Pelanggan dengan perjanjian bulanan menunjukkan tingkat atrisi lebih dari 40%, sedangkan kontrak jangka panjang menunjukkan churn yang dapat diabaikan."
+      ]
+    },
+    {
+      "id": "financials",
+      "title": "3. Risiko Keuangan & Tenure",
+      "paragraphs": [
+        "Biaya bulanan yang tinggi dikombinasikan dengan tenure rendah (12 bulan pertama) mewakili jendela churn berisiko tinggi yang kritis. Pelanggan yang mengalami masalah teknis tanpa kontrak dukungan khusus juga cepat churn."
+      ],
+      "table": {
+        "headers": ["Parameter Tagihan", "Tingkat Churn (%)", "Segmen Risiko Pelanggan"],
+        "rows": [
+          ["Pembayaran Cek Elektronik", "45,3%", "Risiko Tinggi"],
+          ["Layanan Internet Fiber Optik", "41,8%", "Risiko Tinggi"],
+          ["Tagihan Paperless", "33,5%", "Risiko Menengah-Tinggi"],
+          ["Tanpa Dukungan Teknis", "31,2%", "Risiko Menengah"],
+          ["Pembayaran Cek Pos", "19,1%", "Risiko Rendah-Menengah"]
+        ],
+        "caption": "5.2 — Konfigurasi Tagihan dan Layanan dengan Atrisi Tinggi"
+      }
+    },
+    {
+      "id": "conclusions",
+      "title": "4. Strategi Retensi",
+      "paragraphs": [
+        "Kami merekomendasikan untuk mengalihkan pelanggan bulanan berisiko tinggi ke perjanjian 1 tahun melalui penawaran promosi. Selain itu, penyediaan dukungan teknis gratis di segmen tagihan tinggi harus diprioritaskan."
+      ],
+      "blockquote": "Menawarkan insentif kecil (misalnya diskon $5 per bulan) kepada pelanggan bulanan untuk menandatangani kontrak 1 tahun mengurangi churn segmen hingga 73%, menghasilkan ROI 4,2x pada anggaran promosi.",
+      "blockquote_citation": "Tinjauan Pendapatan Telekomunikasi Triwulanan"
+    }
+  ]
+}

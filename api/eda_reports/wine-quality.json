@@ -1,0 +1,64 @@
+{
+  "title": "Analisis Kualitas Anggur Vinho Verde Portugal",
+  "subtitle": "Mengeksplorasi sifat kimia yang menentukan kualitas sensorik.",
+  "source": "UCI Machine Learning Repository",
+  "size": 6497,
+  "chart_title": "Persentase Anggur Premium berdasarkan Kadar Alkohol (%)",
+  "chart_data": [
+    { "name": "< 9,5%", "value": 8.0 },
+    { "name": "9,5-10,9%", "value": 24.0 },
+    { "name": "11,0-12,4%", "value": 58.0 },
+    { "name": "12,5%+", "value": 83.0 }
+  ],
+  "x_axis_label": "Kadar Alkohol (%)",
+  "y_axis_label": "Pangsa Premium (%)",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "1. Profil Kimia",
+      "paragraphs": [
+        "Dataset ini mencakup 6.497 observasi laboratorium anggur Portugis merah dan putih Vinho Verde. Tujuannya adalah untuk menghubungkan pengukuran seperti keasaman volatil, pH, klorida, dan konsentrasi alkohol dengan peringkat sensorik konsensus."
+      ],
+      "metrics": [
+        { "label": "Anggur Diuji", "value": "6.497 sampel", "description": "Merah & Putih" },
+        { "label": "Rata-rata Alkohol", "value": "10,4%", "description": "Std dev 1,1%" },
+        { "label": "Rata-rata pH", "value": "3,22", "description": "Rata-rata asam" },
+        { "label": "Tingkat Premium", "value": "19,6%", "description": "Skor 7 atau 8" }
+      ]
+    },
+    {
+      "id": "alcohol",
+      "title": "2. Indeks Alkohol",
+      "paragraphs": [
+        "Kandungan alkohol adalah indikator positif tunggal terbaik dari kualitas anggur. Anggur dengan volume alkohol yang lebih tinggi secara konsisten dinilai sebagai anggur premium (rating >= 7)."
+      ]
+    },
+    {
+      "id": "acidity",
+      "title": "3. Penanda Asam & Fisikokimia",
+      "paragraphs": [
+        "Keasaman volatil berkorelasi negatif dengan peringkat kualitas, karena asam asetat yang lebih tinggi menyebabkan profil cuka yang asam. Sulfat menunjukkan korelasi positif, bertindak sebagai antioksidan yang mempertahankan profil segar."
+      ],
+      "table": {
+        "headers": ["Penanda Kimia", "Korelasi dengan Kualitas", "Efek Pengawetan"],
+        "rows": [
+          ["Volume alkohol", "+0,444", "Korelasi Kualitas Langsung"],
+          ["Keasaman Volatil", "-0,391", "Penanda kerusakan cuka"],
+          ["Kepadatan", "-0,308", "Indikator kepadatan gula"],
+          ["Sulfat", "+0,251", "Pengawetan antioksidan"],
+          ["Asam Sitrat", "+0,085", "Kontribusi kesegaran asam"]
+        ],
+        "caption": "8.2 — Koefisien Korelasi Pearson terhadap Peringkat Kualitas"
+      }
+    },
+    {
+      "id": "conclusions",
+      "title": "4. Standardisasi Kualitas",
+      "paragraphs": [
+        "Membakukan waktu fermentasi untuk mencapai kadar alkohol antara 11% dan 12% sambil mempertahankan keasaman volatil rendah (< 0,3 g/dm³) adalah kunci untuk secara konsisten menghasilkan anggur kelas atas."
+      ],
+      "blockquote": "Membatasi oksidasi melalui penambahan sulfat yang tepat dan mengatur keasaman volatil di bawah 0,35 g/dm³ bertanggung jawab untuk pengurangan 85% dalam hasil kualitas anggur tingkat rendah.",
+      "blockquote_citation": "Dewan Riset Enologi & Anggur Portugal"
+    }
+  ]
+}

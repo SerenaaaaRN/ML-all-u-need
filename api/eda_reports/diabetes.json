@@ -1,0 +1,64 @@
+{
+  "title": "Analisis Diabetes Klinis Pima Indians",
+  "subtitle": "Mengeksplorasi penanda fisiologis dan pengukuran diagnostik untuk penilaian risiko diabetes.",
+  "source": "National Institute of Diabetes and Digestive and Kidney Diseases",
+  "size": 768,
+  "chart_title": "Insidensi Diabetes berdasarkan Glukosa Plasma (mg/dL)",
+  "chart_data": [
+    { "name": "< 100", "value": 4.0 },
+    { "name": "100-139", "value": 23.0 },
+    { "name": "140-179", "value": 58.0 },
+    { "name": "180+", "value": 82.0 }
+  ],
+  "x_axis_label": "Kadar Glukosa (mg/dL)",
+  "y_axis_label": "Tingkat Insidensi (%)",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "1. Ikhtisar Klinis",
+      "paragraphs": [
+        "Dataset ini mencakup pengukuran klinis untuk 768 pasien wanita keturunan Pima Indian. Analisis berfokus pada mengisolasi faktor risiko medis utama (misalnya Tekanan Darah, Insulin, BMI, Glukosa, dan Silsilah) yang menentukan timbulnya diabetes."
+      ],
+      "metrics": [
+        { "label": "Ukuran Kohort", "value": "768 pasien", "description": "Semua wanita" },
+        { "label": "Rata-rata BMI", "value": "32,0 kg/m²", "description": "Obesitas Kelas I" },
+        { "label": "Rata-rata Glukosa", "value": "120,9 mg/dL", "description": "Pra-diabetes rata-rata" },
+        { "label": "Rasio Risiko", "value": "34,9%", "description": "Hasil positif" }
+      ]
+    },
+    {
+      "id": "indicators",
+      "title": "2. Prekursor Risiko Utama",
+      "paragraphs": [
+        "Konsentrasi glukosa menonjol sebagai prekursor terkuat. Ketika kadar glukosa melewati ambang 140 mg/dL, probabilitas diagnosis positif melonjak secara eksponensial."
+      ]
+    },
+    {
+      "id": "diagnostics",
+      "title": "3. Korelasi Diagnostik",
+      "paragraphs": [
+        "Hubungan statistik menunjukkan bahwa diagnostik klinis memiliki bobot yang sangat berbeda ketika dianalisis secara univariat. Glukosa Plasma dan Indeks Massa Tubuh adalah penanda utama."
+      ],
+      "table": {
+        "headers": ["Fitur Fisiologis", "Korelasi dengan Hasil", "Penilaian Klinis"],
+        "rows": [
+          ["Glukosa", "0,467", "Prekursor Langsung Terkuat"],
+          ["BMI", "0,293", "Kontribusi Obesitas Tinggi"],
+          ["Usia", "0,238", "Efek Progresi Sedang"],
+          ["Kehamilan", "0,222", "Asosiasi Risiko Paritas"],
+          ["Insulin", "0,131", "Korelasi Univariat Rendah"]
+        ],
+        "caption": "2.2 — Matriks Korelasi Univariat Langsung"
+      }
+    },
+    {
+      "id": "conclusions",
+      "title": "4. Kesimpulan Klinis",
+      "paragraphs": [
+        "Model perawatan preventif harus memprioritaskan pemantauan kadar glukosa di atas segalanya. Program skrining yang menargetkan individu dengan kadar glukosa melebihi 120 mg/dL dapat mendeteksi onset diabetes lebih awal."
+      ],
+      "blockquote": "Intervensi gaya hidup aktif yang dikombinasikan dengan kontrol glikemik pada pasien pra-diabetes (glukosa 100-125 mg/dL) mengurangi risiko perkembangan menjadi diabetes tipe 2 hingga 58%.",
+      "blockquote_citation": "Pedoman Diabetes Organisasi Kesehatan Dunia"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "title": "Studi Demografis Keselamatan RMS Titanic",
+  "subtitle": "Analisis data eksplorasi manifes penumpang yang merinci probabilitas keselamatan.",
+  "source": "Encyclopedia Titanica Database",
+  "size": 891,
+  "chart_title": "Tingkat Keselamatan berdasarkan Kelas Penumpang (%)",
+  "chart_data": [
+    { "name": "Kelas 1", "value": 63.0 },
+    { "name": "Kelas 2", "value": 47.0 },
+    { "name": "Kelas 3", "value": 24.0 }
+  ],
+  "x_axis_label": "Kelas Penumpang",
+  "y_axis_label": "Tingkat Keselamatan (%)",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "1. Konteks Historis",
+      "paragraphs": [
+        "Dataset ini merinci 891 penumpang di atas kapal RMS Titanic pada pelayarannya di bulan April 1912. Tujuannya adalah untuk menganalisis faktor sosial ekonomi, demografis, dan keluarga yang mempengaruhi tingkat keselamatan."
+      ],
+      "metrics": [
+        { "label": "Ukuran Sampel", "value": "891 penumpang", "description": "Kohort manifes" },
+        { "label": "Tingkat Keselamatan", "value": "38,4%", "description": "Rata-rata global" },
+        { "label": "Rata-rata Tarif", "value": "£32,2", "description": "Profil outlier miring" },
+        { "label": "Anak di Kapal", "value": "113 (di bawah 16)", "description": "Target selamat tinggi" }
+      ]
+    },
+    {
+      "id": "demographics",
+      "title": "2. Demografi Keselamatan",
+      "paragraphs": [
+        "Protokol maritim terkenal 'wanita dan anak-anak pertama' sangat tercermin dalam data. Perempuan memiliki tingkat keselamatan rata-rata melebihi 74%, sementara laki-laki berada di bawah 19%."
+      ]
+    },
+    {
+      "id": "socioeconomic",
+      "title": "3. Divisi Kelas",
+      "paragraphs": [
+        "Di luar jenis kelamin, divisi kelas (Pclass) adalah penentu yang signifikan. Penumpang kelas satu selamat pada tingkat 2,5x lebih tinggi daripada penumpang kelas tiga."
+      ],
+      "table": {
+        "headers": ["Kategori Penumpang", "Total", "Selamat", "Tingkat Keselamatan (%)"],
+        "rows": [
+          ["Kelas 1 Wanita", "94", "91", "96,8%"],
+          ["Kelas 1 Pria", "122", "45", "36,9%"],
+          ["Kelas 2 Wanita", "76", "70", "92,1%"],
+          ["Kelas 2 Pria", "108", "17", "15,7%"],
+          ["Kelas 3 Wanita", "144", "72", "50,0%"],
+          ["Kelas 3 Pria", "347", "47", "13,5%"]
+        ],
+        "caption": "6.2 — Irisan Granular Kelas dan Hasil Berdasarkan Gender"
+      }
+    },
+    {
+      "id": "geography",
+      "title": "4. Pelabuhan Keberangkatan",
+      "paragraphs": [
+        "Lokasi geografis keberangkatan (Southampton, Cherbourg, Queenstown) menunjukkan korelasi ringan dengan keselamatan, sebagian besar didorong oleh campuran kelas yang naik di setiap pelabuhan. Cherbourg melihat persentase penumpang kaya yang lebih tinggi."
+      ],
+      "blockquote": "Kehilangan jiwa ditentukan oleh akses ke tingkat geladak kapal. Kelas sosial dan tata letak geladak akomodasi memainkan peran penting dalam latensi pelarian penumpang.",
+      "blockquote_citation": "Lord Mersey, Laporan Komisioner Kecelakaan (1912)"
+    }
+  ]
+}

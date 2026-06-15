@@ -1,0 +1,62 @@
+{
+  "title": "Dampak AI Generatif pada Pendidikan Tinggi",
+  "subtitle": "Menganalisis kinerja mahasiswa, tingkat kecemasan, dan keragaman alat di lingkungan akademik.",
+  "source": "University Survey Registry",
+  "size": 1000,
+  "chart_title": "Skor Kecemasan Ujian berdasarkan Jam AI Generatif Mingguan",
+  "chart_data": [
+    { "name": "0-4 jam", "value": 3.0 },
+    { "name": "5-9 jam", "value": 5.0 },
+    { "name": "10-14 jam", "value": 7.0 },
+    { "name": "15+ jam", "value": 9.0 }
+  ],
+  "x_axis_label": "Jam AI Generatif per Minggu",
+  "y_axis_label": "Skor Kecemasan (1-10)",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "1. Ruang Lingkup Studi",
+      "paragraphs": [
+        "Survei ini mengamati 1.000 mahasiswa universitas dari berbagai jurusan, mendokumentasikan penggunaan alat AI Generatif (jam per minggu, kasus penggunaan utama, ketergantungan yang dirasakan) bersama dengan metrik akademik seperti IPK Pra-Semester dan kategori hasil pasca-adopsi."
+      ],
+      "metrics": [
+        { "label": "Ukuran Survei", "value": "1.000 mahasiswa", "description": "S1 & S2" },
+        { "label": "Rata-rata Jam AI", "value": "6,8 jam/minggu", "description": "Median 4,5 jam" },
+        { "label": "Tingkat Kecemasan Tinggi", "value": "32,1%", "description": "Rating > 7/10" },
+        { "label": "Kebijakan Institusi", "value": "Dibatasi", "description": "64% institusi" }
+      ]
+    },
+    {
+      "id": "anxiety",
+      "title": "2. Kecemasan Ujian & IPK",
+      "paragraphs": [
+        "Penggunaan alat AI Generatif yang berlebihan (di atas 15 jam mingguan) berkorelasi dengan kecemasan terkait ujian yang lebih tinggi, sering didorong oleh kurangnya waktu belajar tradisional dan ketergantungan pada bantuan coding atau penulisan secara real-time."
+      ]
+    },
+    {
+      "id": "tool-use",
+      "title": "3. Distribusi Alat",
+      "paragraphs": [
+        "Jurusan yang berbeda menunjukkan tingkat adopsi yang bervariasi. Mahasiswa teknik menunjukkan tingkat penggunaan tertinggi, terutama memanfaatkan AI untuk coding, sementara mahasiswa seni menggunakan alat untuk brainstorming dan menulis."
+      ],
+      "table": {
+        "headers": ["Kategori Jurusan", "Jam AI per Minggu", "Kasus Penggunaan Utama", "Ketergantungan"],
+        "rows": [
+          ["Teknik", "8,9 jam", "Coding / Debugging", "6,2 / 10"],
+          ["Sains", "6,1 jam", "Riset / Merangkum", "4,8 / 10"],
+          ["Seni & Humaniora", "4,2 jam", "Ideasi / Menulis", "3,9 / 10"]
+        ],
+        "caption": "3.2 — Indikator Adopsi Alat AI Berdasarkan Jurusan"
+      }
+    },
+    {
+      "id": "conclusions",
+      "title": "4. Panduan Pendidikan",
+      "paragraphs": [
+        "AI Generatif menawarkan peningkatan produktivitas tetapi membutuhkan instruksi yang terstruktur. Universitas harus fokus pada pengajaran teknik prompt dan etika penggunaan untuk mencegah burnout mahasiswa dan atrofi keterampilan."
+      ],
+      "blockquote": "Alat AI Generatif harus bertindak sebagai 'sepeda kognitif' daripada pengganti latihan analitis fundamental. Panduan penggunaan yang seimbang membantu mempertahankan keterampilan pemecahan masalah kritis.",
+      "blockquote_citation": "Panel Penasihat Teknologi Pendidikan"
+    }
+  ]
+}

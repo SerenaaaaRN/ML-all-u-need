@@ -4,12 +4,13 @@ import pandas as pd
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
-MODEL_PATH = Path("advertisement_click_prediction/models/best_model.joblib")
+MODEL_PATH = Path("advertisement_click_prediction/models/NaiveBayes.joblib")
 
 try:
     pipeline = joblib.load(MODEL_PATH)
 except FileNotFoundError:
     print("File not found")
+    exit()
 
 SAMPLE = {
     "Gender": "Female",

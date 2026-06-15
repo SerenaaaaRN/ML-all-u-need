@@ -1,0 +1,64 @@
+{
+  "title": "Analisis Penjualan Video Game Global",
+  "subtitle": "Menyelidiki penjualan platform, kinerja genre, dan pangsa regional di seluruh sejarah video game.",
+  "source": "VGChartz Historical Sales",
+  "size": 16598,
+  "chart_title": "Rata-rata Penjualan Global berdasarkan Genre (Jutaan)",
+  "chart_data": [
+    { "name": "Platform", "value": 93.0 },
+    { "name": "Shooter", "value": 80.0 },
+    { "name": "Role-Playing", "value": 62.0 },
+    { "name": "Sports", "value": 56.0 },
+    { "name": "Action", "value": 52.0 }
+  ],
+  "x_axis_label": "Genre",
+  "y_axis_label": "Rata-rata Penjualan (Juta)",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "1. Ikhtisar Industri",
+      "paragraphs": [
+        "Dataset ini mencakup catatan penjualan historis untuk lebih dari 16.500 game yang mencapai penjualan 100.000 unit atau lebih. Tujuan kami adalah memeriksa ukuran pasar, tren pertumbuhan, dan kinerja regional."
+      ],
+      "metrics": [
+        { "label": "Catatan Game", "value": "16.598 judul", "description": "Rilis 1980-2020" },
+        { "label": "Game Puncak Wii", "value": "82,7 juta unit", "description": "Outlier Wii Sports" },
+        { "label": "Jumlah Platform", "value": "31 platform", "description": "Dari Atari hingga PS4" },
+        { "label": "Total Pangsa NA", "value": "48,6%", "description": "Wilayah terbesar" }
+      ]
+    },
+    {
+      "id": "genres",
+      "title": "2. Preferensi Genre",
+      "paragraphs": [
+        "Game platform dan shooter memerintahkan rata-rata penjualan global tertinggi per judul game, sementara game action membentuk jumlah total rilis tertinggi."
+      ]
+    },
+    {
+      "id": "geography",
+      "title": "3. Pangsa Penjualan Regional",
+      "paragraphs": [
+        "Penjualan Amerika Utara dan Eropa berkorelasi kuat, sementara preferensi penjualan Jepang sangat unik, lebih menyukai genre genggam dan RPG."
+      ],
+      "table": {
+        "headers": ["Kategori Genre", "Penjualan Global (Jt)", "NA (%)", "EU (%)", "JP (%)"],
+        "rows": [
+          ["Action", "1751,18", "49,3%", "29,7%", "8,9%"],
+          ["Sports", "1330,93", "50,9%", "28,3%", "10,1%"],
+          ["Shooter", "1037,37", "55,8%", "30,3%", "3,7%"],
+          ["Role-Playing", "927,37", "35,5%", "20,2%", "38,1%"]
+        ],
+        "caption": "7.2 — Kontribusi Pendapatan Regional di Seluruh Genre Teratas"
+      }
+    },
+    {
+      "id": "conclusions",
+      "title": "4. Tren Pasar",
+      "paragraphs": [
+        "Rumah penerbitan harus menyusun anggaran pemasaran regional secara berbeda tergantung pada genre: RPG memerlukan promosi lokal Jepang yang substansial, sementara Shooter dapat fokus hampir secara eksklusif pada pasar Barat."
+      ],
+      "blockquote": "Konsol genggam terus mendominasi pangsa pasar Jepang, mewakili 62% penjualan game, sangat kontras dengan Amerika Utara di mana konsol rumah memegang 84% pangsa pasar.",
+      "blockquote_citation": "Laporan Tahunan Asosiasi Penerbit Video Game"
+    }
+  ]
+}
