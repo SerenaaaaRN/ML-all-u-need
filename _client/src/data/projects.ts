@@ -705,7 +705,7 @@ export const projects: ProjectMeta[] = [
         min: 0,
         max: 200,
         step: 0.1,
-        defaultValue: 29.85,
+        defaultValue: 29,
         unit: 'USD',
       },
       {
@@ -715,7 +715,7 @@ export const projects: ProjectMeta[] = [
         min: 0,
         max: 10000,
         step: 0.1,
-        defaultValue: 29.85,
+        defaultValue: 29,
         unit: 'USD',
       },
     ],

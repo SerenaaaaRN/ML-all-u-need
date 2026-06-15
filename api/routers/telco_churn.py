@@ -26,7 +26,7 @@ class TelcoChurnRequest(BaseModel):
     PaperlessBilling: str
     PaymentMethod: str
     MonthlyCharges: float
-    TotalCharges: str
+    TotalCharges: float
 
 @router.post("/predict/telco-churn", response_model=PredictResponse)
 def predict_telco_churn(body: TelcoChurnRequest):

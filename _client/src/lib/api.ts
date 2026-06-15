@@ -18,7 +18,10 @@ export const predict = async (
     const err: ApiError = await res
       .json()
       .catch(() => ({ detail: 'Unknown error' }));
-    throw new Error(err.detail);
+    const msg = Array.isArray(err.detail)
+      ? err.detail.map((d: any) => d.msg).join('; ')
+      : err.detail;
+    throw new Error(msg);
   }
 
   const data = await res.json();
