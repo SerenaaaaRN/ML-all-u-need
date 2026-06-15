@@ -1,0 +1,21 @@
+# ML project folders — not needed at runtime
+advertisement_click_prediction/
+diabetes_prediction/
+impact of ai student/
+rain_prediction/
+telco customer churn/
+titanic survival prediction/
+video games sales/
+wine_quality_classification/
+utils/
+
+# Large / irrelevant files
+*.ipynb
+*.csv
+*.png
+*.jpg
+*.jpeg
+*.gif
+notebooks/
+__pycache__/
+*.pyc
