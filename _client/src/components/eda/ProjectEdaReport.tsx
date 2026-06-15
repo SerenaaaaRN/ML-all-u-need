@@ -188,13 +188,13 @@ export const ProjectEdaReport = ({ projectId }: ProjectEdaReportProps) => {
           )}
 
           {/* Render Table if present */}
-          {section.table && (
+          {section.table ? (
             <ReportTable
               headers={section.table.headers}
               rows={section.table.rows}
               caption={section.table.caption}
             />
-          )}
+          ) : null}
 
           {/* Render Blockquote if present */}
           {section.blockquote && (

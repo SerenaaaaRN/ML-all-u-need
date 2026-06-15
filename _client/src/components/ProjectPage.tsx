@@ -2,20 +2,22 @@ import { ProjectEdaReport } from '@/components/eda/ProjectEdaReport';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { InputForm } from '@/components/playground/InputForm';
 import { ResultPanel } from '@/components/result/ResultPanel';
-import { getEdaProjects } from '@/lib/api';
 import { getProjectById } from '@/data/projects';
+import { getEdaProjects } from '@/lib/api';
 import type { PredictionResult } from '@/types/prediction';
 import { useEffect, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
-export const Playground = () => {
+export const ProjectPage = () => {
   const { projectId } = useParams<{ projectId: string }>();
   const [result, setResult] = useState<PredictionResult | null>(null);
   const [activeTab, setActiveTab] = useState<'playground' | 'eda'>('eda');
   const [edaProjects, setEdaProjects] = useState<string[]>([]);
 
   useEffect(() => {
-    getEdaProjects().then(setEdaProjects).catch(() => {});
+    getEdaProjects()
+      .then(setEdaProjects)
+      .catch(() => {});
   }, []);
 
   if (!projectId) return <Navigate to="/" replace />;

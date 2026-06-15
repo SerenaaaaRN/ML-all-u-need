@@ -1,6 +1,6 @@
-import { SidebarInset } from '@/components/layout/sidebar';
+import { SidebarInset } from '@/components/layout/Sidebar';
 import { SidebarProvider, useSidebar } from '@/hooks/useSidebar';
-import { AppSidebar } from '@/components/layout/app-sidebar';
+import { AppSidebar } from '@/components/layout/AppSidebar';
 import Menu01Icon from '@hugeicons/react/Menu01Icon';
 import { Link, Outlet } from 'react-router-dom';
 

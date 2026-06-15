@@ -1,6 +1,7 @@
 import { useSidebar } from '@/hooks/useSidebar';
 import ArrowDown01Icon from '@hugeicons/react/ArrowDown01Icon';
 import ArrowRight01Icon from '@hugeicons/react/ArrowRight01Icon';
+import type { FunctionComponent } from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
@@ -11,8 +12,20 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
-} from './sidebar';
-import type { NavGroup as NavGroupType } from './sidebar-data';
+} from './Sidebar';
+
+type NavItem = {
+  title: string;
+  url: string;
+  icon?: FunctionComponent<{ size?: number }>;
+};
+
+type NavGroupType = {
+  id: string;
+  title: string;
+  icon?: FunctionComponent<{ size?: number }>;
+  items: NavItem[];
+};
 
 interface Props {
   group: NavGroupType;
@@ -109,7 +122,7 @@ export function NavGroup({ group }: Props) {
 
       {open ? (
         <SidebarGroupContent>
-              <SidebarMenuSub>
+          <SidebarMenuSub>
             {group.items.map((item) => (
               <li key={item.url} className="group/menu-sub-item relative">
                 <NavLink
@@ -118,11 +131,15 @@ export function NavGroup({ group }: Props) {
                   onClick={() => isMobile && setOpenMobile(false)}
                 >
                   {({ isActive }) => (
-                    <SidebarMenuButton asChild variant="sub" isActive={isActive}>
+                    <SidebarMenuButton
+                      asChild
+                      variant="sub"
+                      isActive={isActive}
+                    >
                       <span className="truncate text-sm">{item.title}</span>
-                  </SidebarMenuButton>
-                )}
-              </NavLink>
+                    </SidebarMenuButton>
+                  )}
+                </NavLink>
               </li>
             ))}
           </SidebarMenuSub>

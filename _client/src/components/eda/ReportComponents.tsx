@@ -234,11 +234,11 @@ export const ReportImage = ({ src, alt, caption }: ReportImageProps) => {
         className="h-auto max-h-96 w-full rounded object-contain"
         loading="lazy"
       />
-      {caption && (
+      {caption ? (
         <p className="text-text-secondary mt-2 text-center font-serif text-[11px] italic">
           {caption}
         </p>
-      )}
+      ) : null}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { AppShell } from '@/components/layout/AppShell';
-import { Playground } from '@/components/playground/Playground';
-import { WelcomeScreen } from '@/components/welcome/WelcomeScreen';
+import { ProjectPage } from '@/components/ProjectPage';
+import { WelcomeScreen } from '@/components/WelcomeScreen';
 import { createBrowserRouter } from 'react-router-dom';
 
 export const router = createBrowserRouter([
@@ -14,7 +14,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'project/:projectId',
-        element: <Playground />,
+        element: <ProjectPage />,
       },
     ],
   },
