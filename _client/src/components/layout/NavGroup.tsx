@@ -39,7 +39,9 @@ export function NavGroup({ group }: Props) {
   if (!group.items.length) {
     return (
       <SidebarGroup>
-        {group.title && <SidebarGroupLabel>{group.title}</SidebarGroupLabel>}
+        {group.title ? (
+          <SidebarGroupLabel>{group.title}</SidebarGroupLabel>
+        ) : null}
         <SidebarGroupContent>
           <SidebarMenu>
             <SidebarMenuItem>
@@ -65,7 +67,7 @@ export function NavGroup({ group }: Props) {
     >
       <SidebarGroupLabel>
         <div className="flex items-center gap-2">
-          {group.icon && <group.icon size={18} />}
+          {group.icon ? <group.icon size={18} /> : null}
           <span>{group.title}</span>
         </div>
       </SidebarGroupLabel>
@@ -101,7 +103,7 @@ export function NavGroup({ group }: Props) {
                       tooltip={isCollapsed ? item.title : undefined}
                     >
                       <span className="flex items-center gap-3">
-                        {item.icon && <item.icon size={18} />}
+                        {item.icon ? <item.icon size={18} /> : null}
                         <span>{item.title}</span>
                       </span>
                     </SidebarMenuButton>

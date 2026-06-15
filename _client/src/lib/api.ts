@@ -2,7 +2,7 @@ import type { ApiError } from '@/types/api';
 import type { EdaReportData } from '@/types/eda';
 import type { PredictionResult } from '@/types/prediction';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE = import.meta.env.VITE_API_URL || '';
 
 export const predict = async (
   projectId: string,

@@ -120,11 +120,11 @@ export const ReportBlockquote = ({
       <p className="text-text-primary font-serif text-sm leading-relaxed italic">
         "{children}"
       </p>
-      {citation && (
+      {citation ? (
         <span className="text-text-secondary mt-2 block text-right font-mono text-[10px] tracking-wider uppercase">
           — {citation}
         </span>
-      )}
+      ) : null}
     </div>
   );
 };
@@ -181,11 +181,11 @@ export const ReportTable = ({ headers, rows, caption }: ReportTableProps) => {
           </tbody>
         </table>
       </div>
-      {caption && (
+      {caption ? (
         <p className="text-text-secondary text-center font-serif text-[11px] italic">
           Table {caption}
         </p>
-      )}
+      ) : null}
     </div>
   );
 };
@@ -210,11 +210,11 @@ export const ReportChartContainer = ({
         Figure visualization
       </span>
       <div className="h-60 w-full">{children}</div>
-      {caption && (
+      {caption ? (
         <p className="text-text-secondary mt-4 text-center font-serif text-[11px] italic">
           Figure {caption}
         </p>
-      )}
+      ) : null}
     </div>
   );
 };
@@ -261,11 +261,11 @@ export const ReportMetricGrid = ({ metrics }: ReportMetricGridProps) => {
           <span className="text-text-primary mt-2 font-mono text-xl font-bold">
             {metric.value}
           </span>
-          {metric.description && (
+          {metric.description ? (
             <span className="text-text-tertiary mt-1 font-sans text-[10px]">
               {metric.description}
             </span>
-          )}
+          ) : null}
         </div>
       ))}
     </div>

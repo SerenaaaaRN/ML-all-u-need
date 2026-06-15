@@ -1,3 +1,11 @@
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/shared/Select';
+import { Slider } from '@/components/shared/Slider';
 import { cn } from '@/lib/cn';
 import type { FeatureSchema } from '@/types/project';
 import { useRef } from 'react';
@@ -21,14 +29,14 @@ export const FormField = ({ field }: Props) => {
         >
           {field.label}
         </label>
-        {field.unit && (
+        {field.unit ? (
           <span className="text-text-tertiary font-mono text-[9px] uppercase">
             {field.unit}
           </span>
-        )}
+        ) : null}
       </div>
 
-      {field.type === 'number' && (
+      {field.type === 'number' ? (
         <input
           type="number"
           id={field.key}
@@ -40,25 +48,22 @@ export const FormField = ({ field }: Props) => {
           className={inputBase}
           required
         />
-      )}
+      ) : null}
 
-      {field.type === 'slider' && (
+      {field.type === 'slider' ? (
         <div className="flex items-center gap-3">
-          <input
-            type="range"
+          <Slider
             id={field.key}
             name={field.key}
             defaultValue={field.defaultValue}
             min={field.min}
             max={field.max}
             step={field.step}
-            className="bg-border-default accent-accent-burgundy h-1 w-full appearance-none rounded-full"
+            className="bg-border-default accent-accent-burgundy h-1"
             required
-            onChange={() => {
+            onValueChange={(value) => {
               if (outputRef.current) {
-                outputRef.current.textContent = (
-                  document.getElementById(field.key) as HTMLInputElement
-                )?.value;
+                outputRef.current.textContent = String(value);
               }
             }}
           />
@@ -70,27 +75,26 @@ export const FormField = ({ field }: Props) => {
             {field.defaultValue}
           </output>
         </div>
-      )}
+      ) : null}
 
-      {field.type === 'select' && field.options && (
-        <select
-          id={field.key}
-          name={field.key}
-          defaultValue={field.defaultValue}
-          className={cn(inputBase, 'appearance-none')}
-          required
-        >
-          {field.options.map((opt) => (
-            <option key={opt.value} value={opt.value}>
-              {opt.label}
-            </option>
-          ))}
-        </select>
-      )}
+      {field.type === 'select' && field.options ? (
+        <Select name={field.key} defaultValue={String(field.defaultValue)}>
+          <SelectTrigger id={field.key} className={cn(inputBase)}>
+            <SelectValue placeholder="Pilih..." />
+          </SelectTrigger>
+          <SelectContent>
+            {field.options.map((opt) => (
+              <SelectItem key={String(opt.value)} value={String(opt.value)}>
+                {opt.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      ) : null}
 
-      {field.hint && (
+      {field.hint ? (
         <p className="text-text-tertiary text-[10px]">{field.hint}</p>
-      )}
+      ) : null}
     </div>
   );
 };

@@ -30,7 +30,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'Age',
         label: 'Age',
-        type: 'number',
+        type: 'slider',
         min: 18,
         max: 100,
         step: 1,
@@ -68,7 +68,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'Pregnancies',
         label: 'Pregnancies',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 20,
         step: 1,
@@ -97,7 +97,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'SkinThickness',
         label: 'Skin Thickness',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 100,
         step: 1,
@@ -117,7 +117,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'BMI',
         label: 'BMI',
-        type: 'number',
+        type: 'slider',
         min: 0.0,
         max: 70.0,
         step: 0.1,
@@ -135,7 +135,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'Age',
         label: 'Age',
-        type: 'number',
+        type: 'slider',
         min: 21,
         max: 120,
         step: 1,
@@ -172,7 +172,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'Weekly_GenAI_Hours',
         label: 'Weekly GenAI Hours',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 100,
         step: 1,
@@ -181,7 +181,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'Traditional_Study_Hours',
         label: 'Traditional Study Hours',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 100,
         step: 1,
@@ -208,7 +208,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'Tool_Diversity',
         label: 'Tool Diversity',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 20,
         step: 1,
@@ -318,7 +318,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'MinTemp',
         label: 'Min Temp',
-        type: 'number',
+        type: 'slider',
         min: -10,
         max: 40,
         step: 0.1,
@@ -328,7 +328,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'MaxTemp',
         label: 'Max Temp',
-        type: 'number',
+        type: 'slider',
         min: -5,
         max: 50,
         step: 0.1,
@@ -406,7 +406,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'WindSpeed9am',
         label: 'Wind Speed 9am',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 100,
         step: 1,
@@ -416,7 +416,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'WindSpeed3pm',
         label: 'Wind Speed 3pm',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 100,
         step: 1,
@@ -446,7 +446,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'Pressure9am',
         label: 'Pressure 9am',
-        type: 'number',
+        type: 'slider',
         min: 950,
         max: 1050,
         step: 0.1,
@@ -456,7 +456,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'Pressure3pm',
         label: 'Pressure 3pm',
-        type: 'number',
+        type: 'slider',
         min: 950,
         max: 1050,
         step: 0.1,
@@ -466,7 +466,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'Temp9am',
         label: 'Temp 9am',
-        type: 'number',
+        type: 'slider',
         min: -10,
         max: 45,
         step: 0.1,
@@ -476,7 +476,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'Temp3pm',
         label: 'Temp 3pm',
-        type: 'number',
+        type: 'slider',
         min: -10,
         max: 50,
         step: 0.1,
@@ -554,7 +554,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'tenure',
         label: 'Tenure',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 100,
         step: 1,
@@ -774,7 +774,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'Age',
         label: 'Age',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 100,
         step: 1,
@@ -784,7 +784,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'SibSp',
         label: 'Siblings/Spouses Aboard',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 10,
         step: 1,
@@ -793,7 +793,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'Parch',
         label: 'Parents/Children Aboard',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 10,
         step: 1,
@@ -854,7 +854,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'Year',
         label: 'Release Year',
-        type: 'number',
+        type: 'slider',
         min: 1980,
         max: 2025,
         step: 1,
@@ -956,7 +956,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'fixed_acidity',
         label: 'Fixed Acidity',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 20,
         step: 0.1,
@@ -965,7 +965,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'volatile_acidity',
         label: 'Volatile Acidity',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 2,
         step: 0.01,
@@ -974,7 +974,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'citric_acid',
         label: 'Citric Acid',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 1.5,
         step: 0.01,
@@ -983,7 +983,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'residual_sugar',
         label: 'Residual Sugar',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 100,
         step: 0.1,
@@ -992,7 +992,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'chlorides',
         label: 'Chlorides',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 1,
         step: 0.001,
@@ -1028,7 +1028,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'pH',
         label: 'pH',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 14,
         step: 0.01,
@@ -1037,7 +1037,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'sulphates',
         label: 'Sulphates',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 2,
         step: 0.01,
@@ -1046,7 +1046,7 @@ export const projects: ProjectMeta[] = [
       {
         key: 'alcohol',
         label: 'Alcohol',
-        type: 'number',
+        type: 'slider',
         min: 0,
         max: 20,
         step: 0.1,

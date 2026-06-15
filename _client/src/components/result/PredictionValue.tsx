@@ -23,12 +23,12 @@ export const PredictionValue = ({ label, value, confidence }: Props) => {
             <div className="text-text-tertiary mb-1 font-mono text-[10px] tracking-wider uppercase">
               Predicted Class
             </div>
-            <div className="text-text-primary font-serif text-3xl break-words md:text-4xl">
+            <div className="text-text-primary font-serif text-3xl wrap-break-word md:text-4xl">
               {label}
             </div>
           </div>
 
-          {confidence !== undefined && (
+          {confidence !== undefined ? (
             <div className="text-right">
               <div className="text-text-tertiary mb-1 font-mono text-[10px] tracking-wider uppercase">
                 Confidence
@@ -46,10 +46,10 @@ export const PredictionValue = ({ label, value, confidence }: Props) => {
                 {confidence}%
               </div>
             </div>
-          )}
+          ) : null}
         </div>
 
-        {confidence !== undefined && (
+        {confidence !== undefined ? (
           <div className="mt-4">
             <div className="bg-border-default h-2 w-full overflow-hidden rounded-full">
               <div
@@ -65,7 +65,7 @@ export const PredictionValue = ({ label, value, confidence }: Props) => {
               />
             </div>
           </div>
-        )}
+        ) : null}
 
         <div className="text-text-tertiary mt-3 font-mono text-[11px]">
           Raw value: {value}

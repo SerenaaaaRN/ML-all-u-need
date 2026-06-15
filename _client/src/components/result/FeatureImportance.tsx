@@ -12,20 +12,47 @@ interface Props {
   data: FeatureImportanceItem[];
 }
 
+function CustomTooltip({
+  active,
+  payload,
+}: {
+  active?: boolean;
+  payload?: { payload: { fullFeature: string; value: number } }[];
+}) {
+  if (active && payload && payload.length) {
+    const d = payload[0].payload;
+    return (
+      <div className="bg-surface-primary border-border-strong rounded-sm border p-2 shadow-sm">
+        <p className="text-text-primary text-sm font-medium">{d.fullFeature}</p>
+        <p className="text-text-secondary mt-1 font-mono text-xs">
+          Importance: {(d.value / 100).toFixed(4)}
+        </p>
+      </div>
+    );
+  }
+  return null;
+}
+
 export const FeatureImportance = ({ data }: Props) => {
   if (!data || data.length === 0) return null;
 
-  const chartData = data
-    .slice(0, 8)
-    .map((item) => ({
+  const len = Math.min(data.length, 8);
+  const chartData: {
+    name: string;
+    fullFeature: string;
+    value: number;
+  }[] = [];
+  for (let i = len - 1; i >= 0; i--) {
+    const item = data[i];
+    chartData.push({
       name:
         item.feature.length > 15
           ? item.feature.substring(0, 15) + '...'
           : item.feature,
       fullFeature: item.feature,
       value: item.importance * 100,
-    }))
-    .reverse();
+    });
+  }
 
   return (
     <div className="border-border-default mt-8 border-t pt-8">
@@ -55,22 +82,7 @@ export const FeatureImportance = ({ data }: Props) => {
             />
             <Tooltip
               cursor={{ fill: 'var(--color-surface-tertiary)' }}
-              content={({ active, payload }) => {
-                if (active && payload && payload.length) {
-                  const data = payload[0].payload;
-                  return (
-                    <div className="bg-surface-primary border-border-strong rounded-sm border p-2 shadow-sm">
-                      <p className="text-text-primary text-sm font-medium">
-                        {data.fullFeature}
-                      </p>
-                      <p className="text-text-secondary mt-1 font-mono text-xs">
-                        Importance: {(data.value / 100).toFixed(4)}
-                      </p>
-                    </div>
-                  );
-                }
-                return null;
-              }}
+              content={<CustomTooltip />}
             />
             <Bar
               dataKey="value"

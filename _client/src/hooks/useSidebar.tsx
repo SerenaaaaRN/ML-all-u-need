@@ -4,6 +4,7 @@ import {
   useCallback,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react';
 
@@ -72,22 +73,23 @@ export function SidebarProvider({
     }
   }, [isMobile]);
 
+  const toggleRef = useRef(toggleSidebar);
+  toggleRef.current = toggleSidebar;
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'b' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        toggleSidebar();
+        toggleRef.current();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [toggleSidebar]);
-
-  const state = open ? 'expanded' : 'collapsed';
+  }, []);
 
   const value = useMemo<SidebarContextProps>(
     () => ({
-      state,
+      state: open ? 'expanded' : 'collapsed',
       open,
       setOpen,
       openMobile,
@@ -95,7 +97,7 @@ export function SidebarProvider({
       isMobile,
       toggleSidebar,
     }),
-    [state, open, setOpen, openMobile, setOpenMobile, isMobile, toggleSidebar]
+    [open, openMobile, isMobile, toggleSidebar]
   );
 
   return (

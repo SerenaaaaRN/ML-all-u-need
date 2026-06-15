@@ -50,7 +50,7 @@ export const Drawer = ({
       />
       <div
         className={cn(
-          'bg-surface-primary animate-fade-in-right relative flex h-full w-full max-w-sidebar-mobile flex-col overflow-y-auto shadow-xl',
+          'bg-surface-primary animate-fade-in-right max-w-sidebar-mobile relative flex h-full w-full flex-col overflow-y-auto shadow-xl',
           className
         )}
         {...props}

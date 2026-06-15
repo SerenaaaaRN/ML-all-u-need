@@ -71,6 +71,12 @@ const sidebarData = {
   ],
 };
 
+const mainGroups: typeof sidebarData.navGroups = [];
+const otherGroups: typeof sidebarData.navGroups = [];
+for (const g of sidebarData.navGroups) {
+  (g.id === 'main' ? mainGroups : otherGroups).push(g);
+}
+
 export function AppSidebar() {
   const { state } = useSidebar();
   const isCollapsed = state === 'collapsed';
@@ -81,11 +87,11 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <div className="flex items-center justify-between gap-3 p-2">
-              {!isCollapsed && (
+              {!isCollapsed ? (
                 <span className="text-text-primary font-serif text-lg font-semibold">
                   ML Showcase
                 </span>
-              )}
+              ) : null}
               <SidebarTrigger>
                 {isCollapsed ? (
                   <SidebarRightIcon size={20} />
@@ -99,19 +105,15 @@ export function AppSidebar() {
       </SidebarHeader>
 
       <SidebarContent>
-        {sidebarData.navGroups
-          .filter((g) => g.id === 'main')
-          .map((group) => (
-            <NavGroup key={group.id} group={group} />
-          ))}
+        {mainGroups.map((group) => (
+          <NavGroup key={group.id} group={group} />
+        ))}
 
         <SidebarSeparator />
 
-        {sidebarData.navGroups
-          .filter((g) => g.id !== 'main')
-          .map((group) => (
-            <NavGroup key={group.id} group={group} />
-          ))}
+        {otherGroups.map((group) => (
+          <NavGroup key={group.id} group={group} />
+        ))}
       </SidebarContent>
 
       <SidebarFooter>

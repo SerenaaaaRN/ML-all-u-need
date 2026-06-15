@@ -11,7 +11,7 @@ import { predict } from '@/lib/api';
 import { extractFeatures } from '@/lib/formatters';
 import type { PredictionResult } from '@/types/prediction';
 import type { ProjectMeta } from '@/types/project';
-import { useActionState } from 'react';
+import { type FormEvent, useState, useTransition } from 'react';
 
 interface Props {
   project: ProjectMeta;
@@ -19,22 +19,27 @@ interface Props {
 }
 
 export const InputForm = ({ project, onResult }: Props) => {
-  const [error, submitAction] = useActionState(
-    async (_prevState: string | null, formData: FormData) => {
+  const [error, setError] = useState<string | null>(null);
+  const [isPending, startTransition] = useTransition();
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+
+    startTransition(async () => {
       try {
+        setError(null);
         onResult(null);
 
         const features = extractFeatures(formData, project.features);
         const result = await predict(project.id, features);
 
         onResult(result);
-        return null;
       } catch (err: any) {
-        return err.message || 'Failed to run prediction';
+        setError(err.message || 'Failed to run prediction');
       }
-    },
-    null
-  );
+    });
+  };
 
   return (
     <Card>
@@ -47,20 +52,20 @@ export const InputForm = ({ project, onResult }: Props) => {
         </CardAction>
       </CardHeader>
       <CardContent>
-        <form action={submitAction} className="flex flex-1 flex-col">
+        <form onSubmit={handleSubmit} className="flex flex-1 flex-col">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {project.features.map((field) => (
               <FormField key={field.key} field={field} />
             ))}
           </div>
 
-          {error && (
+          {error ? (
             <div className="bg-accent-burgundy/10 border-accent-burgundy/20 text-accent-burgundy mt-4 rounded-sm border p-3 text-sm">
               {error}
             </div>
-          )}
+          ) : null}
 
-          <PredictButton />
+          <PredictButton pending={isPending} />
         </form>
       </CardContent>
     </Card>

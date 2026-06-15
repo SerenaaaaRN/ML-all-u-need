@@ -8,6 +8,8 @@ import type { PredictionResult } from '@/types/prediction';
 import { useEffect, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
+let edaPromise: Promise<string[]> | undefined;
+
 export const ProjectPage = () => {
   const { projectId } = useParams<{ projectId: string }>();
   const [result, setResult] = useState<PredictionResult | null>(null);
@@ -15,9 +17,8 @@ export const ProjectPage = () => {
   const [edaProjects, setEdaProjects] = useState<string[]>([]);
 
   useEffect(() => {
-    getEdaProjects()
-      .then(setEdaProjects)
-      .catch(() => {});
+    if (!edaPromise) edaPromise = getEdaProjects();
+    edaPromise.then(setEdaProjects).catch(() => {});
   }, []);
 
   if (!projectId) return <Navigate to="/" replace />;
@@ -88,7 +89,7 @@ export const ProjectPage = () => {
       )}
 
       {/* EDA Tab */}
-      {activeTab === 'eda' && hasEda && (
+      {activeTab === 'eda' && (
         <div className="animate-fade-in">
           <ProjectEdaReport projectId={project.id} />
         </div>

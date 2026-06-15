@@ -1,6 +1,5 @@
 import { cn } from '@/lib/cn';
 import PlayIcon from '@hugeicons/react/PlayIcon';
-import { useFormStatus } from 'react-dom';
 
 const spinner = (
   <div className="absolute inset-0 flex translate-y-0 items-center justify-center">
@@ -8,9 +7,7 @@ const spinner = (
   </div>
 );
 
-export const PredictButton = () => {
-  const { pending } = useFormStatus();
-
+export const PredictButton = ({ pending }: { pending: boolean }) => {
   return (
     <button
       type="submit"

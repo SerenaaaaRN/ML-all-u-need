@@ -11,7 +11,7 @@ import {
 } from '@/components/eda/ReportComponents';
 import { getEdaReport } from '@/lib/api';
 import type { EdaReportData } from '@/types/eda';
-import { useEffect, useReducer } from 'react';
+import { useEffect, useMemo, useState, useTransition } from 'react';
 import {
   Bar,
   BarChart,
@@ -25,57 +25,46 @@ interface ProjectEdaReportProps {
   projectId: string;
 }
 
-type FetchState = {
-  data: EdaReportData | null;
-  loading: boolean;
-  error: string | null;
-};
-
-function fetchReducer(
-  _state: FetchState,
-  action:
-    | { type: 'fetch' }
-    | { type: 'success'; data: EdaReportData }
-    | { type: 'error'; error: string }
-): FetchState {
-  switch (action.type) {
-    case 'fetch':
-      return { data: null, loading: true, error: null };
-    case 'success':
-      return { data: action.data, loading: false, error: null };
-    case 'error':
-      return { data: null, loading: false, error: action.error };
-  }
-}
-
 export const ProjectEdaReport = ({ projectId }: ProjectEdaReportProps) => {
-  const [{ data: report, loading, error }, dispatch] = useReducer(
-    fetchReducer,
-    { data: null, loading: true, error: null }
-  );
+  const [report, setReport] = useState<EdaReportData | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
-    let active = true;
-    dispatch({ type: 'fetch' });
-
-    getEdaReport(projectId)
-      .then((data) => {
-        if (active) dispatch({ type: 'success', data });
-      })
-      .catch((err) => {
-        if (active)
-          dispatch({
-            type: 'error',
-            error: err.message || 'Failed to load report.',
-          });
-      });
-
+    let ignore = false;
+    startTransition(async () => {
+      try {
+        setError(null);
+        const data = await getEdaReport(projectId);
+        if (!ignore) setReport(data);
+      } catch (err: any) {
+        if (!ignore) setError(err.message || 'Failed to load report.');
+      }
+    });
     return () => {
-      active = false;
+      ignore = true;
     };
   }, [projectId]);
 
-  if (loading) {
+  const tocSections = useMemo(
+    () =>
+      report ? report.sections.map((s) => ({ id: s.id, label: s.title })) : [],
+    [report]
+  );
+
+  const handleRetry = () => {
+    startTransition(async () => {
+      try {
+        setError(null);
+        const data = await getEdaReport(projectId);
+        setReport(data);
+      } catch (err: any) {
+        setError(err.message || 'Failed to load report.');
+      }
+    });
+  };
+
+  if (isPending && !report) {
     return (
       <div className="text-text-tertiary py-12 text-center font-mono text-xs">
         Loading dataset outline and analysis...
@@ -86,16 +75,17 @@ export const ProjectEdaReport = ({ projectId }: ProjectEdaReportProps) => {
   if (error || !report) {
     return (
       <div className="text-accent-burgundy py-12 text-center font-mono text-xs">
-        {error || 'No report available for this dataset.'}
+        <p>{error || 'No report available for this dataset.'}</p>
+        <button
+          onClick={handleRetry}
+          disabled={isPending}
+          className="border-accent-burgundy hover:bg-accent-burgundy/10 mt-4 rounded-sm border px-4 py-2 font-mono text-[11px] tracking-wider uppercase transition-colors disabled:opacity-50"
+        >
+          {isPending ? 'Loading...' : 'Retry'}
+        </button>
       </div>
     );
   }
-
-  // Map sections for Table of Contents outline
-  const tocSections = report.sections.map((s) => ({
-    id: s.id,
-    label: s.title,
-  }));
 
   return (
     <ReportContainer sections={tocSections}>
@@ -123,9 +113,9 @@ export const ProjectEdaReport = ({ projectId }: ProjectEdaReportProps) => {
           ))}
 
           {/* Render Metrics Grid if present */}
-          {section.metrics && section.metrics.length > 0 && (
+          {section.metrics?.length ? (
             <ReportMetricGrid metrics={section.metrics} />
-          )}
+          ) : null}
 
           {/* Render Chart right after section 2 (idx === 1) */}
           {idx === 1 && (
@@ -197,11 +187,11 @@ export const ProjectEdaReport = ({ projectId }: ProjectEdaReportProps) => {
           ) : null}
 
           {/* Render Blockquote if present */}
-          {section.blockquote && (
+          {section.blockquote ? (
             <ReportBlockquote citation={section.blockquote_citation}>
               {section.blockquote}
             </ReportBlockquote>
-          )}
+          ) : null}
         </ReportSection>
       ))}
     </ReportContainer>
