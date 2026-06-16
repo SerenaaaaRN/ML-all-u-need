@@ -1,18 +1,18 @@
 {
   "title": "Analisis Penjualan Video Game Global",
   "subtitle": "Menyelidiki penjualan platform, kinerja genre, dan pangsa regional di seluruh sejarah video game.",
-  "source": "VGChartz Historical Sales",
+  "source": "Video Game Sales (Kaggle)",
   "size": 16598,
-  "chart_title": "Rata-rata Penjualan Global berdasarkan Genre (Jutaan)",
+  "chart_title": "Total Penjualan Global berdasarkan Genre (Jutaan)",
   "chart_data": [
-    { "name": "Platform", "value": 93.0 },
-    { "name": "Shooter", "value": 80.0 },
-    { "name": "Role-Playing", "value": 62.0 },
-    { "name": "Sports", "value": 56.0 },
-    { "name": "Action", "value": 52.0 }
+    { "name": "Action", "value": 1751.0 },
+    { "name": "Sports", "value": 1331.0 },
+    { "name": "Shooter", "value": 1037.0 },
+    { "name": "Role-Playing", "value": 927.0 },
+    { "name": "Platform", "value": 831.0 }
   ],
   "x_axis_label": "Genre",
-  "y_axis_label": "Rata-rata Penjualan (Juta)",
+  "y_axis_label": "Total Penjualan (Juta)",
   "sections": [
     {
       "id": "intro",

@@ -1,14 +1,15 @@
 {
   "title": "Dampak AI Generatif pada Pendidikan Tinggi",
   "subtitle": "Menganalisis kinerja mahasiswa, tingkat kecemasan, dan keragaman alat di lingkungan akademik.",
-  "source": "University Survey Registry",
-  "size": 1000,
-  "chart_title": "Skor Kecemasan Ujian berdasarkan Jam AI Generatif Mingguan",
+  "source": "AI Student Impact Dataset (Synthetic — Kaggle)",
+  "size": 50000,
+  "chart_title": "Level Kecemasan Ujian berdasarkan Jam AI Generatif Mingguan",
   "chart_data": [
-    { "name": "0-4 jam", "value": 3.0 },
-    { "name": "5-9 jam", "value": 5.0 },
-    { "name": "10-14 jam", "value": 7.0 },
-    { "name": "15+ jam", "value": 9.0 }
+    { "name": "0-10 jam", "value": 69.53 },
+    { "name": "11-20 jam", "value": 20.46 },
+    { "name": "21-30 jam", "value": 6.8 },
+    { "name": "31-40 jam", "value": 3.21 },
+    { "name": "41-50 jam", "value": 0.0 }
   ],
   "x_axis_label": "Jam AI Generatif per Minggu",
   "y_axis_label": "Skor Kecemasan (1-10)",
@@ -17,13 +18,17 @@
       "id": "intro",
       "title": "1. Ruang Lingkup Studi",
       "paragraphs": [
-        "Survei ini mengamati 1.000 mahasiswa universitas dari berbagai jurusan, mendokumentasikan penggunaan alat AI Generatif (jam per minggu, kasus penggunaan utama, ketergantungan yang dirasakan) bersama dengan metrik akademik seperti IPK Pra-Semester dan kategori hasil pasca-adopsi."
+        "Survei ini mengamati 50.000 mahasiswa universitas dari berbagai jurusan, mendokumentasikan penggunaan alat AI Generatif (jam per minggu, kasus penggunaan utama, ketergantungan yang dirasakan) bersama dengan metrik akademik seperti IPK Pra-Semester dan kategori hasil pasca-adopsi."
       ],
       "metrics": [
-        { "label": "Ukuran Survei", "value": "1.000 mahasiswa", "description": "S1 & S2" },
-        { "label": "Rata-rata Jam AI", "value": "6,8 jam/minggu", "description": "Median 4,5 jam" },
-        { "label": "Tingkat Kecemasan Tinggi", "value": "32,1%", "description": "Rating > 7/10" },
-        { "label": "Kebijakan Institusi", "value": "Dibatasi", "description": "64% institusi" }
+        { "label": "Ukuran Survei", "value": "50.000 mahasiswa", "description": "S1 & S2" },
+        { "label": "Rata-rata Jam AI", "value": "8,4 jam/minggu", "description": "Median 5,8 jam" },
+        { "label": "Tingkat Kecemasan Tinggi", "value": "7,7%", "description": "Rating > 7/10" },
+        { "label": "Kebijakan Strict Ban", "value": "19,6%", "description": "Minoritas institusi" }
+      ],
+      "images": [
+        { "url": "/eda/ai-student/ai-dist.png", "caption": "1.1 - Analisis Distribusi Numeric" },
+        { "url": "/eda/ai-student/ai-cor.png", "caption": "1.2 - Matriks Korelasi" }
       ]
     },
     {
@@ -42,9 +47,9 @@
       "table": {
         "headers": ["Kategori Jurusan", "Jam AI per Minggu", "Kasus Penggunaan Utama", "Ketergantungan"],
         "rows": [
-          ["Teknik", "8,9 jam", "Coding / Debugging", "6,2 / 10"],
-          ["Sains", "6,1 jam", "Riset / Merangkum", "4,8 / 10"],
-          ["Seni & Humaniora", "4,2 jam", "Ideasi / Menulis", "3,9 / 10"]
+          ["STEM (Sains, Teknologi, Teknik)", "10,5 jam", "Coding / Debugging", "3,8 / 10"],
+          ["Kesehatan & Bisnis", "8,0 jam", "Riset / Analisis", "3,5 / 10"],
+          ["Seni & Humaniora", "7,0 jam", "Ideasi / Menulis", "3,3 / 10"]
         ],
         "caption": "3.2 — Indikator Adopsi Alat AI Berdasarkan Jurusan"
       }

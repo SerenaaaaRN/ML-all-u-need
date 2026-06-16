@@ -1,0 +1,63 @@
+{
+  "title": "Analisis Biaya Asuransi Medis",
+  "subtitle": "Mengidentifikasi faktor demografis dan kesehatan yang memengaruhi biaya asuransi medis individu.",
+  "source": "Medical Cost Personal Dataset (Kaggle)",
+  "size": 1338,
+  "chart_title": "Rata-rata Biaya Medis berdasarkan Status Merokok",
+  "chart_data": [
+    { "name": "Non-Smoker", "value": 8434.0 },
+    { "name": "Smoker", "value": 32050.0 }
+  ],
+  "x_axis_label": "Status Merokok",
+  "y_axis_label": "Rata-rata Biaya (USD)",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "1. Ringkasan Dataset",
+      "paragraphs": [
+        "Dataset ini mencatat biaya asuransi medis dari 1.338 individu di Amerika Serikat. Tujuan dari penelitian ini adalah untuk mengisolasi faktor demografis dan kesehatan mana yang memiliki pengaruh terkuat terhadap besaran biaya asuransi. Atribut yang dievaluasi meliputi usia, jenis kelamin, BMI, jumlah tanggungan, status merokok, dan wilayah tempat tinggal."
+      ],
+      "metrics": [
+        { "label": "Total Sampel", "value": "1.338 individu", "description": "Populasi sampel" },
+        { "label": "Prediktor", "value": "6 fitur", "description": "Demografis + kesehatan" },
+        { "label": "Rata-rata Biaya", "value": "$13.270", "description": "Standar dev $12.110" },
+        { "label": "Rata-rata BMI", "value": "30,7", "description": "Kategori obesitas" }
+      ],
+      "images": []
+    },
+    {
+      "id": "outliers",
+      "title": "2. Deteksi Outlier",
+      "paragraphs": [
+        "Kolom charges memiliki 10,39% outlier dengan distribusi yang sangat right-skewed. Sebagian besar biaya terkonsentrasi di kisaran rendah, tetapi ada beberapa individu dengan biaya ekstrem hingga $63.770. BMI juga memiliki 0,67% outlier, menandakan adanya individu dengan indeks massa tubuh yang tidak lazim."
+      ]
+    },
+    {
+      "id": "correlation",
+      "title": "3. Faktor Dominan",
+      "paragraphs": [
+        "Status merokok muncul sebagai faktor paling dominan — perokok memiliki rata-rata biaya hampir 4 kali lipat dibanding non-perokok. Usia juga berkorelasi positif dengan biaya, sementara jenis kelamin dan wilayah tidak menunjukkan perbedaan signifikan."
+      ],
+      "table": {
+        "headers": ["Faktor", "Dampak", "Signifikansi"],
+        "rows": [
+          ["Smoker", "Rata-rata $32.050 vs $8.434", "Faktor paling dominan"],
+          ["Usia", "Korelasi positif", "Biaya naik seiring usia"],
+          ["BMI", "Korelasi lemah-sedang", "BMI tinggi cenderung biaya lebih tinggi"],
+          ["Jenis Kelamin", "Perbedaan minimal", "Tidak signifikan"],
+          ["Region", "Variasi kecil", "Tidak signifikan"]
+        ],
+        "caption": "1.2 — Faktor yang Memengaruhi Biaya Asuransi"
+      }
+    },
+    {
+      "id": "conclusion",
+      "title": "4. Kesimpulan",
+      "paragraphs": [
+        "Model GradientBoosting menunjukkan performa terbaik dengan R2 sebesar 0,893, artinya 89,3% variasi biaya asuransi dapat dijelaskan oleh fitur yang tersedia. Status merokok adalah prediktor paling kuat — intervensi kebijakan harga asuransi harus mempertimbangkan faktor ini secara proporsional."
+      ],
+      "blockquote": "Dengan penambahan fitur numerik (usia, BMI, children), performa model meningkat drastis dari R² 0,67 menjadi 0,89 — menunjukkan pentingnya variabel demografis dalam prediksi biaya asuransi.",
+      "blockquote_citation": "Medical Cost Personal Dataset, Analisis 2024"
+    }
+  ]
+}

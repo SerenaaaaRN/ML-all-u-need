@@ -1,14 +1,14 @@
 {
   "title": "Analisis Click-Through Rate Iklan",
   "subtitle": "Studi eksplorasi tentang indikator demografis dan gaji yang menentukan konversi pengguna.",
-  "source": "Kaggle Marketing Datasets",
+  "source": "Social Network Ads (Kaggle)",
   "size": 400,
   "chart_title": "Click-Through Rate berdasarkan Rentang Usia (%)",
   "chart_data": [
-    { "name": "18-29", "value": 12.0 },
-    { "name": "30-39", "value": 41.0 },
-    { "name": "40-49", "value": 78.0 },
-    { "name": "50+", "value": 91.0 }
+    { "name": "18-29", "value": 25.0 },
+    { "name": "30-39", "value": 34.5 },
+    { "name": "40-49", "value": 27.2 },
+    { "name": "50+", "value": 13.2 }
   ],
   "x_axis_label": "Rentang Usia",
   "y_axis_label": "Click Rate (%)",
@@ -25,7 +25,10 @@
         { "label": "Rata-rata Usia", "value": "37,6 tahun", "description": "Sedikit miring ke kanan" },
         { "label": "Rata-rata Gaji", "value": "$69.742", "description": "Standar dev $34k" }
       ],
-      "images": []
+      "images": [
+        { "url": "/eda/add-click/dist-num.png", "caption": "1.1 - Analisis Distribusi Numeric" },
+        { "url": "/eda/add-click/cor-mat.png", "caption": "1.2 - Matriks Korelasi" }
+      ]
     },
     {
       "id": "demographics",
@@ -43,11 +46,15 @@
       "table": {
         "headers": ["Nama Fitur", "Koefisien Korelasi", "Signifikansi P-Value"],
         "rows": [
-          ["Usia", "+0,781", "p < 0,001 (Sangat Signifikan)"],
+          ["Usia", "+0,622", "p < 0,001 (Sangat Signifikan)"],
           ["Perkiraan Gaji", "+0,362", "p < 0,001 (Sangat Signifikan)"],
           ["Jenis Kelamin (Pria)", "-0,042", "p = 0,421 (Tidak Signifikan)"]
         ],
-        "caption": "1.2 — Korelasi Prediktor dengan Variabel Target"
+        "caption": "1.2 — Korelasi Prediktor dengan Variabel Target",
+        "images": [
+          { "url": "/eda/add-click/dist-num.png", "caption": "1.1 - Analisis Distribusi Numeric" },
+          { "url": "/eda/add-click/cor-mat.png", "caption": "1.2 - Matriks Korelasi" }
+        ]
       }
     },
     {
@@ -57,7 +64,7 @@
         "Berdasarkan temuan demografis, kami merekomendasikan untuk membatasi penempatan iklan pada platform yang sebagian besar dihuni oleh audiens muda (< 30 tahun), dan mengalihkan anggaran ke kelompok usia yang lebih tinggi dengan ambang gaji yang lebih tinggi."
       ],
       "blockquote": "Menargetkan kampanye secara ketat kepada pengguna berusia 40+ dengan perkiraan gaji di atas $80.000 USD diproyeksikan dapat mengoptimalkan efisiensi pemasaran dan meningkatkan konversi klik hingga 180%.",
-      "blockquote_citation": "ML Showcase Agent, Peneliti Utama"
+      "blockquote_citation": ""
     }
   ]
 }

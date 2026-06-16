@@ -5,9 +5,9 @@
   "size": 7043,
   "chart_title": "Tingkat Churn berdasarkan Jenis Kontrak (%)",
   "chart_data": [
-    { "name": "Bulanan", "value": 43.0 },
-    { "name": "Satu tahun", "value": 11.0 },
-    { "name": "Dua tahun", "value": 3.0 }
+    { "name": "Bulanan", "value": 42.7 },
+    { "name": "Satu tahun", "value": 11.3 },
+    { "name": "Dua tahun", "value": 2.8 }
   ],
   "x_axis_label": "Jenis Kontrak",
   "y_axis_label": "Tingkat Churn (%)",
@@ -44,7 +44,7 @@
           ["Pembayaran Cek Elektronik", "45,3%", "Risiko Tinggi"],
           ["Layanan Internet Fiber Optik", "41,8%", "Risiko Tinggi"],
           ["Tagihan Paperless", "33,5%", "Risiko Menengah-Tinggi"],
-          ["Tanpa Dukungan Teknis", "31,2%", "Risiko Menengah"],
+          ["Tanpa Dukungan Teknis", "41,6%", "Risiko Tinggi"],
           ["Pembayaran Cek Pos", "19,1%", "Risiko Rendah-Menengah"]
         ],
         "caption": "5.2 — Konfigurasi Tagihan dan Layanan dengan Atrisi Tinggi"

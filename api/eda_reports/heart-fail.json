@@ -1,0 +1,54 @@
+{
+  "title": "Analisis Prediksi Penyakit Jantung",
+  "subtitle": "Mengeksplorasi parameter medis dan indikator klinis untuk deteksi dini penyakit jantung.",
+  "source": "Heart Failure Prediction Dataset (Kaggle)",
+  "size": 918,
+  "chart_title": "Prevalensi Penyakit Jantung berdasarkan Jenis Nyeri Dada",
+  "chart_data": [
+    { "name": "ATA", "value": 28.0 },
+    { "name": "NAP", "value": 55.0 },
+    { "name": "ASY", "value": 88.0 },
+    { "name": "TA", "value": 67.0 }
+  ],
+  "x_axis_label": "Jenis Chest Pain",
+  "y_axis_label": "Prevalensi Penyakit Jantung (%)",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "1. Ringkasan Dataset",
+      "paragraphs": [
+        "Dataset ini mencatat parameter medis dari 918 pasien dengan berbagai indikator kesehatan seperti usia, tekanan darah, kadar kolesterol, dan hasil elektrokardiografi. Tujuan dari penelitian ini adalah untuk memprediksi apakah seseorang memiliki penyakit jantung berdasarkan parameter medis yang umum diukur. Atribut yang dievaluasi meliputi 11 fitur medis yang mencakup hasil tes darah, EKG, dan gejala klinis."
+      ],
+      "metrics": [
+        { "label": "Total Pasien", "value": "918 pasien", "description": "Populasi sampel" },
+        { "label": "Prediktor", "value": "11 fitur", "description": "Parameter medis" },
+        { "label": "Rata-rata Usia", "value": "53,5 tahun", "description": "Kisaran 28-77 tahun" },
+        { "label": "Rasio Positif", "value": "55,3%", "description": "Dataset balanced" }
+      ],
+      "images": []
+    },
+    {
+      "id": "outliers",
+      "title": "2. Deteksi Outlier",
+      "paragraphs": [
+        "Beberapa kolom medis memiliki outlier yang signifikan. FastingBS memiliki 23,31% outlier — wajar karena kadar gula darah puasa bisa sangat bervariasi secara medis. Cholesterol memiliki 19,93% outlier, sementara RestingBP memiliki 3,05%. Kolom Oldpeak dan MaxHR memiliki outlier yang relatif sedikit, masing-masing 1,74% dan 0,22%."
+      ]
+    },
+    {
+      "id": "balance",
+      "title": "3. Keseimbangan Target",
+      "paragraphs": [
+        "Target HeartDisease cukup balanced: 55,34% positif dan 44,66% negatif dengan imbalance ratio hanya 1,24x. Ini berarti model tidak perlu handling imbalance khusus dan evaluasi akurasi dapat diandalkan secara langsung."
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "4. Kesimpulan Klinis",
+      "paragraphs": [
+        "GradientBoosting mencatatkan performa terbaik dengan akurasi 87,5% dan ROC-AUC 0,927 — sangat baik untuk prediksi penyakit jantung. SVM unggul tipis di ROC-AUC (0,944) namun akurasi lebih rendah. Kombinasi fitur klinis seperti jenis nyeri dada, ST Slope, dan Oldpeak terbukti menjadi indikator yang kuat untuk diagnosis."
+      ],
+      "blockquote": "Deteksi dini penyakit jantung menggunakan parameter medis rutin menunjukkan akurasi tinggi (87,5%), menjadikan pendekatan machine learning sebagai alat skrining awal yang potensial.",
+      "blockquote_citation": "Heart Failure Prediction Dataset, Analisis 2024"
+    }
+  ]
+}

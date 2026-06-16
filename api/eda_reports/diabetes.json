@@ -1,14 +1,14 @@
 {
   "title": "Analisis Diabetes Klinis Pima Indians",
   "subtitle": "Mengeksplorasi penanda fisiologis dan pengukuran diagnostik untuk penilaian risiko diabetes.",
-  "source": "National Institute of Diabetes and Digestive and Kidney Diseases",
+  "source": "Pima Indians Diabetes Database (Kaggle / UCI)",
   "size": 768,
   "chart_title": "Insidensi Diabetes berdasarkan Glukosa Plasma (mg/dL)",
   "chart_data": [
-    { "name": "< 100", "value": 4.0 },
-    { "name": "100-139", "value": 23.0 },
-    { "name": "140-179", "value": 58.0 },
-    { "name": "180+", "value": 82.0 }
+    { "name": "< 100", "value": 25.6 },
+    { "name": "100-139", "value": 48.7 },
+    { "name": "140-179", "value": 19.6 },
+    { "name": "180+", "value": 5.9 }
   ],
   "x_axis_label": "Kadar Glukosa (mg/dL)",
   "y_axis_label": "Tingkat Insidensi (%)",
@@ -24,6 +24,10 @@
         { "label": "Rata-rata BMI", "value": "32,0 kg/m²", "description": "Obesitas Kelas I" },
         { "label": "Rata-rata Glukosa", "value": "120,9 mg/dL", "description": "Pra-diabetes rata-rata" },
         { "label": "Rasio Risiko", "value": "34,9%", "description": "Hasil positif" }
+      ],
+      "images": [
+        { "url": "/eda/diabetes/dist-diab.png", "caption": "1.1 - Analisis Distribusi Numeric" },
+        { "url": "/eda/diabetes/cor-diab.png", "caption": "1.2 - Matriks Korelasi" }
       ]
     },
     {
@@ -42,11 +46,11 @@
       "table": {
         "headers": ["Fitur Fisiologis", "Korelasi dengan Hasil", "Penilaian Klinis"],
         "rows": [
-          ["Glukosa", "0,467", "Prekursor Langsung Terkuat"],
-          ["BMI", "0,293", "Kontribusi Obesitas Tinggi"],
-          ["Usia", "0,238", "Efek Progresi Sedang"],
-          ["Kehamilan", "0,222", "Asosiasi Risiko Paritas"],
-          ["Insulin", "0,131", "Korelasi Univariat Rendah"]
+          ["Glukosa", "0,47", "Prekursor Langsung Terkuat"],
+          ["BMI", "0,29", "Kontribusi Obesitas Tinggi"],
+          ["Usia", "0,24", "Efek Progresi Sedang"],
+          ["Kehamilan", "0,22", "Asosiasi Risiko Paritas"],
+          ["Insulin", "0,13", "Korelasi Univariat Rendah"]
         ],
         "caption": "2.2 — Matriks Korelasi Univariat Langsung"
       }

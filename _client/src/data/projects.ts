@@ -267,8 +267,14 @@ export const projects: ProjectMeta[] = [
         type: 'select',
         options: [
           { label: 'Copywriting/Drafting', value: 'Copywriting/Drafting' },
-          { label: 'Debugging/Troubleshooting', value: 'Debugging/Troubleshooting' },
-          { label: 'Direct Answer Generation', value: 'Direct_Answer_Generation' },
+          {
+            label: 'Debugging/Troubleshooting',
+            value: 'Debugging/Troubleshooting',
+          },
+          {
+            label: 'Direct Answer Generation',
+            value: 'Direct_Answer_Generation',
+          },
           { label: 'Ideation', value: 'Ideation' },
           { label: 'Summarizing Reading', value: 'Summarizing_Reading' },
         ],
@@ -933,7 +939,7 @@ export const projects: ProjectMeta[] = [
     description:
       'Predicts individual medical insurance costs based on demographic and lifestyle factors.',
     imageUrl:
-      'https://storage.googleapis.com/kaggle-datasets-images/1735/8496/eb145a00156c0eedf0edc048c6decf7d/dataset-cover.jpg?t=2022-04-02-21-47-56',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNJaFIdlBNnQhZ4q89JPpVEvIYo-T9JQHvNA&s',
     category: 'regression',
     bestModel: 'Gradient Boosting',
     metricName: 'R²',
@@ -1011,7 +1017,7 @@ export const projects: ProjectMeta[] = [
     description:
       'Predicts the presence of heart disease based on clinical measurements and test results.',
     imageUrl:
-      'https://storage.googleapis.com/kaggle-datasets-images/4563038/7774938/12d0b367ff9a8ae6d6233aff8df1cec5/dataset-cover.png?t=2024-03-09-06-21-05',
+      'https://storage.googleapis.com/kaggle-datasets-images/3309453/5755730/6cab38e4b97186fc7ad69f690cca378f/dataset-cover.jpg?t=2023-05-23-17-05-40',
     category: 'binary-classification',
     bestModel: 'Gradient Boosting',
     metricName: 'Accuracy',

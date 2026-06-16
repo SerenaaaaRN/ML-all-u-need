@@ -5,10 +5,10 @@
   "size": 145460,
   "chart_title": "Probabilitas Hujan Besok berdasarkan Kelembaban Jam 3 Sore (%)",
   "chart_data": [
-    { "name": "< 40%", "value": 6.0 },
-    { "name": "40-59%", "value": 21.0 },
-    { "name": "60-79%", "value": 54.0 },
-    { "name": "80%+", "value": 85.0 }
+    { "name": "< 40%", "value": 6.2 },
+    { "name": "40-59%", "value": 13.5 },
+    { "name": "60-79%", "value": 32.7 },
+    { "name": "80%+", "value": 75.4 }
   ],
   "x_axis_label": "Kelembaban Relatif Jam 3 Sore",
   "y_axis_label": "Probabilitas Hujan Besok (%)",
@@ -40,15 +40,15 @@
         "Skor fitur univariat menunjukkan keutamaan variabel sore hari dibandingkan pembacaan pagi hari, karena akumulasi sore hari menentukan perubahan cuaca lokal."
       ],
       "table": {
-        "headers": ["Variabel Meteorologi", "Skor Information Gain", "Cakrawala Prediktif"],
+        "headers": ["Variabel Meteorologi", "Koefisien Korelasi", "Cakrawala Prediktif"],
         "rows": [
-          ["Kelembaban Jam 3 Sore", "0,452", "Tinggi (Indikator Segera)"],
-          ["Jam Sinar Matahari", "0,381", "Tinggi (Korelasi Terbalik)"],
-          ["Kelembaban Jam 9 Pagi", "0,273", "Sedang (Baseline Harian)"],
-          ["Tekanan Jam 3 Sore", "0,221", "Sedang (Penurunan Tekanan)"],
-          ["Kecepatan Angin", "0,198", "Rendah-Sedang (Pergerakan Front)"]
+          ["Kelembaban Jam 3 Sore", "+0,446", "Tinggi (Indikator Segera)"],
+          ["Jam Sinar Matahari", "-0,444", "Tinggi (Korelasi Terbalik)"],
+          ["Kelembaban Jam 9 Pagi", "+0,257", "Sedang (Baseline Harian)"],
+          ["Tekanan Jam 3 Sore", "-0,226", "Sedang (Penurunan Tekanan)"],
+          ["Kecepatan Angin", "+0,234", "Rendah-Sedang (Pergerakan Front)"]
         ],
-        "caption": "4.2 — Metrik Information Gain untuk Prakiraan Curah Hujan"
+        "caption": "4.2 — Koefisien Korelasi Pearson terhadap Curah Hujan"
       }
     },
     {
