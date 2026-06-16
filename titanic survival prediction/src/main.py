@@ -6,9 +6,9 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 from sklearn.model_selection import train_test_split
 from utils.modeling import save_competition_result
-from preprocessing import feature_engineering, build_preprocessor
+from preprocessing import build_preprocessor
 from training import run_competition
-
+from preprocessing import DROP_COLS
 
 DATA_PATH = Path("titanic survival prediction/data/Titanic-Dataset.csv")
 TARGET = 'Survived'
@@ -16,8 +16,7 @@ MODEL_PATH = Path("titanic survival prediction/models")
 
 if __name__ == "__main__":
     df = pd.read_csv(DATA_PATH)
-
-    df = feature_engineering(df)
+    df = df.drop(columns=DROP_COLS, errors='ignore')
 
     X = df.drop(columns=[TARGET])
     y = df[TARGET]
