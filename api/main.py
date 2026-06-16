@@ -31,7 +31,8 @@ def get_eda_report(project_id: str):
 
 from routers import (
     ad_click, diabetes, ai_student, rain, 
-    telco_churn, titanic, video_games, wine_quality
+    telco_churn, titanic, video_games, wine_quality,
+    medical_cost, heart_failure
 )
 
 app.include_router(ad_click.router, prefix="/api")
@@ -42,3 +43,5 @@ app.include_router(telco_churn.router, prefix="/api")
 app.include_router(titanic.router, prefix="/api")
 app.include_router(video_games.router, prefix="/api")
 app.include_router(wine_quality.router, prefix="/api")
+app.include_router(medical_cost.router, prefix="/api")
+app.include_router(heart_failure.router, prefix="/api")

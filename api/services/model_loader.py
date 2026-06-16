@@ -6,6 +6,7 @@ BASE = Path(__file__).resolve().parent.parent / "models"
 PROJECTS = [
     "ad-click", "diabetes", "ai-student", "rain",
     "telco-churn", "titanic", "video-games", "wine-quality",
+    "med-cost", "heart-fail",
 ]
 
 

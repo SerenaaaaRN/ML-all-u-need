@@ -113,7 +113,6 @@ def test_telco_churn_prediction(client: TestClient):
 def test_titanic_prediction(client: TestClient):
     payload = {
         "Pclass": 3,
-        "Name": "Braund, Mr. Owen Harris",
         "Sex": "male",
         "Age": 22.0,
         "SibSp": 1,
@@ -162,6 +161,41 @@ def test_wine_quality_prediction(client: TestClient):
     data = response.json()
     assert "value" in data
 
+def test_medical_cost_prediction(client: TestClient):
+    payload = {
+        "age": 35,
+        "sex": "male",
+        "bmi": 28.5,
+        "children": 2,
+        "smoker": "yes",
+        "region": "southwest"
+    }
+    response = client.post("/api/predict/med-cost", json=payload)
+    assert response.status_code == 200
+    data = response.json()
+    assert "value" in data
+    assert "label" in data
+
+def test_heart_failure_prediction(client: TestClient):
+    payload = {
+        "Age": 50,
+        "Sex": "M",
+        "ChestPainType": "ATA",
+        "RestingBP": 130,
+        "Cholesterol": 250,
+        "FastingBS": 0,
+        "RestingECG": "Normal",
+        "MaxHR": 150,
+        "ExerciseAngina": "N",
+        "Oldpeak": 1.0,
+        "ST_Slope": "Up"
+    }
+    response = client.post("/api/predict/heart-fail", json=payload)
+    assert response.status_code == 200
+    data = response.json()
+    assert "value" in data
+    assert "label" in data
+
 def test_eda_report(client: TestClient):
     response = client.get("/api/eda/titanic")
     assert response.status_code == 200
@@ -172,3 +206,17 @@ def test_eda_report(client: TestClient):
 
     response = client.get("/api/eda/invalid-project")
     assert response.status_code == 404
+
+def test_eda_med_cost(client: TestClient):
+    response = client.get("/api/eda/med-cost")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["title"] == "Analisis Biaya Asuransi Medis"
+    assert len(data["sections"]) > 0
+
+def test_eda_heart_fail(client: TestClient):
+    response = client.get("/api/eda/heart-fail")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["title"] == "Analisis Prediksi Penyakit Jantung"
+    assert len(data["sections"]) > 0

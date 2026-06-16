@@ -1,7 +1,9 @@
 # Exclude ML project folders — not needed at runtime
 advertisement_click_prediction/
 diabetes_prediction/
+heart failure prediction/
 impact of ai student/
+medical cost personal
 rain_prediction/
 telco customer churn/
 titanic survival prediction/

@@ -15,8 +15,10 @@ Python • scikit-learn • pandas • numpy • matplotlib • seaborn • jobl
 | [Impact of AI Student](impact%20of%20ai%20student/) | Multiclass Classification | HistGradientBoosting (Acc 53%) |
 | [Rain Prediction](rain_prediction/) | Binary Classification | RandomForest (Acc 85%) |
 | [Telco Customer Churn](telco%20customer%20churn/) | Binary Classification | LogisticReg (Acc 79%) |
-| [Titanic Survival Prediction](titanic%20survival%20prediction/) | Binary Classification | RandomForest (Acc 85%) |
+| [Titanic Survival Prediction](titanic%20survival%20prediction/) | Binary Classification | KNN (Acc 83%) |
 | [Video Games Sales](video%20games%20sales/) | Regression | GradientBoosting (R2 0.85) |
+| [Medical Cost Personal](medical%20cost%20personal/) | Regression | GradientBoosting (R2 0.89) |
+| [Heart Failure Prediction](heart%20failure%20prediction/) | Binary Classification | GradientBoosting (Acc 88%) |
 | [Wine Quality Classification](wine_quality_classification/) | Multiclass Classification | RandomForest (Acc 65%) |
 
 ## Structure
